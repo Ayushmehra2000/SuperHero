@@ -5,7 +5,6 @@ const privatekey = "852d39a3cc4c0dd6b73111eb66da06db0ab61e03";
 const publickey = "6c921bc276d308c6784937cce8063c07";
 var value = ts+privatekey+publickey;
 var hash = CryptoJS.MD5(value).toString();
-console.log(hash);
 
 let fav = [];
 

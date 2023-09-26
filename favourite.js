@@ -39,7 +39,6 @@ function favlist(favArray){
 
 // function to remove hero from favourite list 
 function RemoveFavourite(id){
-    console.log(favArray);
     let index=-1;
     for(let i=0 ;i<showfav.length;i++){
         if(showfav[i]===id){

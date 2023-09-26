@@ -26,7 +26,6 @@ function checkHeroInFavouriteList(data){
 function addFavourite(data){
     // Checking the chero is in favourite list or not 
     let checkHero = checkHeroInFavouriteList(data);
-    console.log(checkHero);
     if(checkHero){
         alert("Hero is already in your favourites");
         return;
