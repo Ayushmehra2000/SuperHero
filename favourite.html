@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuperHero Hunters.com</title>
+    <title>Favourite Character</title>
     <!-- font Awesome link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap css link  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- css links -->
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="herodetail.css">
+    <link rel="stylesheet" href="favourite.css">
 </head>
 <body>
-    <!-- header -->
     <Nav>
         <!-- nav bar  -->
         <div id="logo">SuperHero Hunter</div>
@@ -24,27 +25,24 @@
         </div>
         
     </Nav>
+    <h1>Favourite Character List</h1>
 
-    <div id="home-container">
-        <!-- <ul id="display-container">
-
-        </ul> -->
-        <div id="searchForm">
-            <div id="form">
-                <input type="text" name="search" id="search" placeholder="Search Hero By Name....">
-                <button id="submitbtm" type="submit">Search</button>
-            </div>
-            <div id="search-items"class="search-items">
-                <!-- <div>
-                    <div class="search-item">
-                        <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2013/04/25/20/ironman.marvel.jpg?width=1200&height=1200&fit=crop" alt="Iron man" srcset="">
-                        <span class="name">Iron Man</span>
-                        <span class="favbtn"><i class="fa-solid fa-bookmark" style="color: #f7f7f7; font-size: 1.5rem;"></i></span></div>
-                    </div>
-                </div> -->
-            </div>
+    <div class="container-fluid">
+        <div id="fav-container" class="row">
+          <!-- <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+          </div>  -->
         </div>
-    </div>
+      </div>
+
+
 
     <!-- bootstrap links -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -55,6 +53,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
 
     <!-- Js link  -->
-    <script src="home.js"></script>
+    <script src="favourite.js"></script>
 </body>
 </html>
