@@ -52,6 +52,7 @@ function RemoveFavourite(id){
     localStorage.setItem("favourite",changeinString);
     favArray=[];
     showfavourite();
+    alert("Hero Remove from Favourite List");
 }
 
 // function to fetch data from marvel api for favourite list 
