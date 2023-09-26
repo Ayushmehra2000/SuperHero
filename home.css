@@ -100,7 +100,7 @@ nav{
     border-radius: 10px;
 }  
 ::-webkit-scrollbar-thumb:hover{
-    background: red;
+    background: rgb(243, 56, 56);
 }
 .search-item{
     height:80px ;
@@ -133,6 +133,9 @@ nav{
     width: 8%;
     color: black;
     font-size: 1.5rem;
+}
+.favbtn:hover{
+    color: rgb(243, 56, 56) ;
 }
 /* card display */
 .card-display{

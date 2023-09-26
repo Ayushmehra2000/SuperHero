@@ -13,6 +13,17 @@ function openDetail(id){
     localStorage.setItem("id",id);
 }
 function addFavourite(data){
+    // Checking the chero is in favourite list or not 
+    let check = false;
+    for(let i=0;i<fav.length;i++){
+        if(fav[i] === data){
+            check = true;
+        }
+    }
+    if(check){
+        alert("Hero is already in your favourites");
+        return;
+    }
     fav.push(data);
     let changeinString = JSON.stringify(fav)
     localStorage.setItem("favourite",changeinString);

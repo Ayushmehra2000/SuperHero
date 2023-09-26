@@ -5,16 +5,28 @@ const privatekey = "852d39a3cc4c0dd6b73111eb66da06db0ab61e03";
 const publickey = "6c921bc276d308c6784937cce8063c07";
 var value = ts+privatekey+publickey;
 var hash = CryptoJS.MD5(value).toString();
-console.log(hash);
 
 let fav = [1009368,1017320];
 
 function addFavourite(data){
+    // Checking the chero is in favourite list or not 
+    let check = false;
+    for(let i=0;i<fav.length;i++){
+        if(fav[i] === data){
+            check = true;
+        }
+    }
+    if(check){
+        alert("Hero is already in your favourites");
+        return;
+    }
+
+    // if not the add the hero to Favourite list 
     fav.push(data);
     let changeinString = JSON.stringify(fav)
-    localStorage.setItem("favourite",changeinString)
-    console.log(localStorage.getItem("favourite"));
-
+    localStorage.setItem("favourite",changeinString);
+    alert("Hero Added to Favourite");
+    updatefavourite();
 }
 
 function displayherodetail(data){
@@ -49,13 +61,21 @@ function displayherodetail(data){
     `;
     herodetail.append(container);
 }
+
+function updatefavourite(){
+    let updatefav = JSON.parse(localStorage.getItem("favourite"));
+    fav=[];
+    for(let i=0;i<updatefav.length;i++){
+        fav.push(updatefav[i]);
+    }
+}
 async function openDetail(id){
     let characters = `https://gateway.marvel.com:443/v1/public/characters/${id}?ts=1&apikey=6c921bc276d308c6784937cce8063c07&hash=${hash}`
     const response = await fetch(characters);
     const herodata = await response.json();
     const data = herodata.data.results
-    console.log(data);
-    displayherodetail(data[0])
+    displayherodetail(data[0]);
+    updatefavourite();
 }
 let id= localStorage.getItem("id");
 document.addEventListener("load",openDetail(id));
