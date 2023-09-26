@@ -29,7 +29,7 @@ function displayherodetail(data){
             </div>
             <div id="hero-img-personaldetail">
                 <div id="hero-img">
-                    <img src="${data.thumbnail.path}.jpg" alt="${data.name}" srcset="">
+                    <img src="${data.thumbnail.path}.jpg" alt="${data.name}">
                 </div>
                 <div id="hero-personaldetail">
                     <div><h5>Id: </h5><span> ${data.id}</span></div>
