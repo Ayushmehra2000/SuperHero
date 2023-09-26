@@ -7,11 +7,15 @@ var value = ts+privatekey+publickey;
 var hash = CryptoJS.MD5(value).toString();
 console.log(hash);
 
-let fav = [1009368,1017320];
+let fav = [];
 
+// setting id of hero for herodetail page 
 function openDetail(id){
     localStorage.setItem("id",id);
 }
+
+
+// function to add Hero in favourite list 
 function addFavourite(data){
     // Checking the chero is in favourite list or not 
     let check = false;
@@ -29,6 +33,8 @@ function addFavourite(data){
     localStorage.setItem("favourite",changeinString);
     alert("Hero Added to Favourite");  
 }
+
+// function to create and append the card into searchResult
 const card = (hero)=>{
     let heroCard=document.createElement('div');
     heroCard.innerHTML=`
@@ -41,6 +47,8 @@ const card = (hero)=>{
     searchResult.append(heroCard)
 }
 
+
+// function to display card 
 function displaydata(heros){
     searchResult.innerHTML="";
     for(let i=0;i<heros.length;i++) {
@@ -48,6 +56,8 @@ function displaydata(heros){
     }
 }
 
+
+// function to fetch data from marvel API 
 async function loadHerodata(textSearched) {
     let update = `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${textSearched}&limit=100&ts=1&apikey=6c921bc276d308c6784937cce8063c07&hash=${hash}`
     if(textSearched === 0){
@@ -59,5 +69,5 @@ async function loadHerodata(textSearched) {
     displaydata(data);
 }
 
+// add event Listner to search when you type input in search box 
 search.addEventListener("input",()=>loadHerodata(search.value));
-// loadHerodata();

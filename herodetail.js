@@ -6,17 +6,28 @@ const publickey = "6c921bc276d308c6784937cce8063c07";
 var value = ts+privatekey+publickey;
 var hash = CryptoJS.MD5(value).toString();
 
-let fav = [1009368,1017320];
+let fav = [];
 
-function addFavourite(data){
-    // Checking the chero is in favourite list or not 
+let toggle = false;
+
+
+// function to check if hero is present in favourite list or not 
+function checkHeroInFavouriteList(data){
     let check = false;
     for(let i=0;i<fav.length;i++){
         if(fav[i] === data){
             check = true;
         }
     }
-    if(check){
+    return check;
+}
+
+// function to add hero in favourite list 
+function addFavourite(data){
+    // Checking the chero is in favourite list or not 
+    let checkHero = checkHeroInFavouriteList(data);
+    console.log(checkHero);
+    if(checkHero){
         alert("Hero is already in your favourites");
         return;
     }
@@ -29,11 +40,12 @@ function addFavourite(data){
     updatefavourite();
 }
 
+// function to display the deatails of hero in herodeatails page
 function displayherodetail(data){
     herodetail.innerHTML="";
     let container = document.createElement("div");
     container.setAttribute("id","detailblock");
-
+    toggle = checkHeroInFavouriteList(data.id);
     container.innerHTML=`
             <div id="heading">
                 <h1>${data.name}</h1>
@@ -62,6 +74,9 @@ function displayherodetail(data){
     herodetail.append(container);
 }
 
+
+
+// function to update favourite list after add to favlist 
 function updatefavourite(){
     let updatefav = JSON.parse(localStorage.getItem("favourite"));
     fav=[];
@@ -69,6 +84,8 @@ function updatefavourite(){
         fav.push(updatefav[i]);
     }
 }
+
+// function to fetch data from Marvel Api for herodetail page 
 async function openDetail(id){
     let characters = `https://gateway.marvel.com:443/v1/public/characters/${id}?ts=1&apikey=6c921bc276d308c6784937cce8063c07&hash=${hash}`
     const response = await fetch(characters);
